@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+
+    <head>
+        <link rel="stylesheet" href="/blog.css">
+    </head>
+
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="card">
+            <div class="contain">
+                <img class="card-img" src=<%=blogs.img %> alt="Bologna">
+                <div class="top-left">
+                    <a href="#" class="btn btn-light btn-sm">
+                        <%= blogs.type %>
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="card-body">
+                <h4 class="card-title">
+                    <%= blogs.title %>
+                </h4>
+                <small class="text-muted cat">
+                    <i class="far fa-clock text-info"></i>
+                    <%=String(blogs.date.getHours())+":"+String(blogs.date.getMinutes())+":"+String(blogs.date.getSeconds())%>
+                </small>
+                <p class="card-text">
+                    <%= blogs.content %>
+                </p>
+                <a href="/read:<%= blogs._id %>" class="btn btn-info">Read More</a>
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                <div class="views">
+                    <%=" Date: "+String(blogs.date.getDay())+" /"+String(blogs.date.getMonth())+"/"+
+                        String(blogs.date.getFullYear())%>
+                </div>
+
+                <div class="stats">
+                    <i class="fa-solid fa-heart"></i> 30
+                    <i class="fa-solid fa-heart-crack"></i> 12
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <%- include('partials/footer') %>
