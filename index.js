@@ -6,6 +6,10 @@ const session = require("express-session");
 const MongoDBStore=require("connect-mongodb-session")(session);
 const req = require("express/lib/request");
 
+const Post=require("./model/post");
+const month=['Jan',"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+
 const authRoutes=require("./routers/auth");
 const registerRoutes=require("./routers/register");
 const postRoutes=require("./routers/post");
@@ -23,11 +27,17 @@ app.use(express.static(path.join(__dirname,'public')));
 app.set("view engine","ejs");
 app.use(session({secret: "my secret", resave: false, saveUninitialized: false, store: store}));
 
-app.get('/',(req,res)=>{
+app.get('/',async(req,res)=>{
     const isLoggedIn=req.session.isLoggedIn;
     const user=req.session.username;
-
-    res.render("home.ejs",{isLoggedIn,user});
+    let blogs=await Post.find({});
+    let l=blogs.length;
+    console.log(l,l-5);
+    let l1=0;
+    if(l-5>0)
+        l1=l-5;
+    blogs=blogs.slice(l1,l);
+    res.render("home.ejs",{isLoggedIn,user,blogs,month});
 });
 
 app.use(registerRoutes);
@@ -36,6 +46,7 @@ app.use(createRoutes);
 app.use(authRoutes);
 app.use(readRoutes);
 app.use(profileRoutes);
+
 app.listen(3000,()=>{
     console.log("connected");
 });

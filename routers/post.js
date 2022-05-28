@@ -9,4 +9,5 @@ router.get("/blog",postController.getAllBlogs);
 
 router.get("/notice",postController.getAllNotices);
 
+router.get("/interview",postController.getAllInterview);
 module.exports =router;

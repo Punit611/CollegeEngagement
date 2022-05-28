@@ -2,7 +2,6 @@ const req = require("express/lib/request");
 const Post = require("../model/post");
 const User = require("../model/user");
 
-console.log("it is here",req.session);
 
 exports.getInputForm=(req,res)=>{
     const isLoggedIn=req.session.isLoggedIn;
@@ -28,9 +27,14 @@ exports.createPost=async(req,res)=>{
     })
     .then(console.log("post created"));
     console.log(p);
-    const u=await User.find({username:user});
+    const u=await User.findOneAndUpdate({username:user},
+        {
+            $push:{
+                blog:p._id,
+            }
+    });
     
-    u[0].posts.push(p._id);
+    // u[0].posts.push(p._id);
     console.log(u);
     const posts=await Post.find({});
     res.render("posts.ejs",{posts,isLoggedIn,user});
