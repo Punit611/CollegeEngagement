@@ -13,23 +13,19 @@
 
 <body>
     <%- include('partials/header') %>
-
+    <div style="margin-top: 25px;">
+        <h1 style="text-align:center;">All Notice</h1>
+    </div>    
         <div class="container">
-            <h1 style="text-align: center; text-decoration: underline;">NOTICE</h1>
+            <% for(let i in notice){ %>
+            
             <div class="notice-box">
-                <h3>Title...</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit cum suscipit laudantium
-                    rerum recusandae, quos, saepe natus eum distinctio mollitia illo, esse exercitationem aliquid itaque
-                    culpa dolorum? Vero, ipsam!</p>
-                <a href="#">Read more...</a>
+                <h3><%= notice[i].title %></h3>
+                <p>      <%- notice[i].content.slice(0,100).replace(/\r\n\r\n/g, "<br>" )+". . . " %>
+                </p>
+                <a href="/read:<%= notice[i]._id %>">Read more...</a>
             </div>
-            <div class="notice-box">
-                <h3>Title...</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos reprehenderit cum suscipit laudantium
-                    rerum recusandae, quos, saepe natus eum distinctio mollitia illo, esse exercitationem aliquid itaque
-                    culpa dolorum? Vero, ipsam!</p>
-                <a href="#">Read more...</a>
-            </div>
+            <% } %>
         </div>
         <%- include('partials/footer') %>
 

@@ -5,7 +5,7 @@ const path=require("path");
 const session = require("express-session");
 const MongoDBStore=require("connect-mongodb-session")(session);
 const req = require("express/lib/request");
-
+const port =process.env.PORT;
 const Post=require("./model/post");
 const month=['Jan',"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
@@ -47,7 +47,7 @@ app.use(authRoutes);
 app.use(readRoutes);
 app.use(profileRoutes);
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("connected");
 });
 

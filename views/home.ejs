@@ -16,58 +16,58 @@
     <div class="homepage">
         <h1 id="homepage-text">Welcome to College App</h1>
     </div>
-    <div class="row d-flex justify-content-center" id="main_box">
-        <div class="card col-4" id="main_box_interview" style="width: 18rem;">
-
-            <div class="card-body">
-                <img src="/img/google-logo.jpeg" class="card-img-top" alt="...">
-                <h5 class="card-title">My first Interview at Google</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content. Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Read More...</a>
-            </div>
-        </div>
-
-        <div class="col-8">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card ">
-                        <div class="card-body">
-                            <h5 class="card-title">Blog 1</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">Read More...</a>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="row">
+          <% for(let i in blogs){ %>
+            <div class="col-12 col-sm-8 col-md-6 col-lg-4" style="margin:30px ;">
+  
+  
+  
+              <div class="card">
+                <div class="contain">
+                  <img class="card-img" src=<%=blogs[i].img %> alt="Bologna">
+                  <div class="top-left">
+                    <a href="<%='/'+ blogs[i].type %>" class="btn btn-light btn-sm">
+                      <%= blogs[i].type %>
+                    </a>
+                  </div>
+    
                 </div>
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Blog 2</h5>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional content.
-                            </p>
-                            <a href="#" class="btn btn-primary">Read More...</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="card">
+                
+  
                 <div class="card-body">
-                    <h5 class="card-title">Notice</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content. Lorem
-                        ipsum dolor sit amet consectetur adipisicing elit. Culpa cupiditate non deserunt neque
-                        voluptate, fugit facilis totam repellat esse. Accusantium blanditiis quia, nam odio in accusamus
-                        sed fuga nostrum molestiae. </p>
-                    <a href="#" class="btn btn-primary">Read More...</a>
+                  <h4 class="card-title">
+                    <%= blogs[i].title %>
+                  </h4>
+                  <small class="text-muted cat">
+                    <i class="far fa-clock text-info"></i>
+                    <%=String(blogs[i].date.getHours())+":"+String(blogs[i].date.getMinutes())+":"+String(blogs[i].date.getSeconds())%>
+                  </small>
+                  <p class="card-text">
+                    <%- blogs[i].content.slice(0,100).replace(/\r\n\r\n/g, "<br>" )+". . . " %>
+                  </p>
+                  <a href="/read:<%= blogs[i]._id %>" class="btn btn-info">Read More</a>
                 </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                  <div class="views">
+                    <%=" Date: "+String(blogs[i].date.getDate())+" /"+month[blogs[i].date.getMonth()]+"/"+
+                      String(blogs[i].date.getFullYear())%>
+                  </div>
+  
+                  <div class="stats">
+                    <i class="fa-solid fa-heart"></i> 30
+                    <i class="fa-solid fa-heart-crack"></i> 12
+                  </div>
+  
+                </div>
+              </div>
             </div>
-
+            <% } %>
         </div>
-    </div>
+  
+      </div>
 
+    
     <%- include('partials/footer') %>
    
 </body>

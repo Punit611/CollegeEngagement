@@ -4,22 +4,9 @@
     <link rel="stylesheet" href="/blog.css">
   </head>
 
-  <div>
-    <div class=" nav_btn my-3 p-3 d-flex justify-content-end">
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          Filter
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#">All</a></li>
-          <li><a class="dropdown-item" href="#">Interviews</a></li>
-          <li><a class="dropdown-item" href="#">Blogs</a></li>
-          <li><a class="dropdown-item" href="#">Notices</a></li>
-        </ul>
-      </div>
-    </div>
-
+  <div style="margin: 50px;">
+    <h1 style="text-align:center; margin:40px">All Blogs</h1>
+     
     <div class="container">
       <div class="row">
         <% for(let i in blogs){ %>
@@ -31,7 +18,7 @@
               <div class="contain">
                 <img class="card-img" src=<%=blogs[i].img %> alt="Bologna">
                 <div class="top-left">
-                  <a href="#" class="btn btn-light btn-sm">
+                  <a href="/blog" class="btn btn-light btn-sm">
                     <%= blogs[i].type %>
                   </a>
                 </div>
@@ -48,13 +35,13 @@
                   <%=String(blogs[i].date.getHours())+":"+String(blogs[i].date.getMinutes())+":"+String(blogs[i].date.getSeconds())%>
                 </small>
                 <p class="card-text">
-                  <%= blogs[i].content.slice(0,30)+". . . " %>
+                  <%- blogs[i].content.slice(0,100).replace(/\r\n\r\n/g, "<br>" )+". . . " %>
                 </p>
                 <a href="/read:<%= blogs[i]._id %>" class="btn btn-info">Read More</a>
               </div>
               <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
                 <div class="views">
-                  <%=" Date: "+String(blogs[i].date.getDay())+" /"+String(blogs[i].date.getMonth())+"/"+
+                  <%=" Date: "+String(blogs[i].date.getDate())+" /"+month[blogs[i].date.getMonth()]+"/"+
                     String(blogs[i].date.getFullYear())%>
                 </div>
 
