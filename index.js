@@ -5,7 +5,7 @@ const path=require("path");
 const session = require("express-session");
 const MongoDBStore=require("connect-mongodb-session")(session);
 const req = require("express/lib/request");
-const port =process.env.PORT;
+const port =process.env.PORT || 3000;
 const Post=require("./model/post");
 const month=['Jan',"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
