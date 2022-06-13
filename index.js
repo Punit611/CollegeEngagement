@@ -17,7 +17,7 @@ const createRoutes=require("./routers/create");
 const readRoutes=require("./routers/read");
 const profileRoutes=require("./routers/profile");
 
-const MONGODB_URI = "mongodb://localhost:27017/collegeApp"
+const MONGODB_URI="mongodb+srv://punit:collegeapp@cluster0.vdoj8.mongodb.net/?retryWrites=true&w=majority";
 
 const store=new MongoDBStore({uri:MONGODB_URI,collection:"sessions"});
 
@@ -50,7 +50,7 @@ app.use(profileRoutes);
 app.listen(port,()=>{
     console.log("connected");
 });
-
-mongodb.connect("mongodb://localhost:27017/CollegeEngagementApp",()=>{
+mongodb.connect(MONGODB_URI,()=>{
     console.log("Connected to mongoose");
 });
+
