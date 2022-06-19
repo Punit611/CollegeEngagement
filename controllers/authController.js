@@ -9,7 +9,7 @@ exports.logout=(req,res)=>{
 };
 
 exports.postSignUp = async(req,res)=> {
-    console.log("In post signup");
+    // console.log("In post signup");
     
     user.create({
         name: req.body.fullName,

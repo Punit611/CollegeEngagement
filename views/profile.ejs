@@ -22,15 +22,16 @@
 
                                     <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
                                         <b>Username :</b>
-                                        <%= user_data.username %>
+                                        <%= user_data.username%>
                                     </p>
 
-
+                                    <% if(user==user_data.username) {%>
                                     <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
                                         <b>Email :</b>
                                         <%= user_data.email %>
                                     </p>
-
+                                    
+                                    <% } %>
                                     <p style="padding: 10px; background-color: rgb(164, 231, 209);" class="card-text">
                                         <b>Articles :</b>
                                         <%= user_data.blog.length %>
@@ -44,14 +45,12 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
 
     
-    <h1 style="text-align:center; margin:40px">Your articles </h1>
+    <h1 style="text-align:center; margin:40px"><%= user_data.username %> all articles </h1>
      
     <div class="container">
       <div class="row">
@@ -91,11 +90,7 @@
                     String(blogs[i].date.getFullYear())%>
                 </div>
 
-                <div class="stats">
-                  <i class="fa-solid fa-heart"></i> 30
-                  <i class="fa-solid fa-heart-crack"></i> 12
-                </div>
-
+                
               </div>
             </div>
           </div>

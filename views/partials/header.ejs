@@ -17,7 +17,7 @@
   <script src="https://kit.fontawesome.com/52d40c951f.js" crossorigin="anonymous"></script>
 </head>
 
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
       <img src="/img/headerlogo.jpg" class="logo-image img-fluid" />
@@ -26,7 +26,7 @@
       aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-collapse navbar-expand-lg" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="navmain">
         <li class="nav-item pe-4">
           <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -40,7 +40,7 @@
           <a class="nav-link active" aria-current="page" href="/notice">Notice</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item pe-4">
           <a class="nav-link active" aria-current="page" href="/interview">Interview Experience</a>
         </li>
 
@@ -51,31 +51,33 @@
           </li>
           <% } %>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+      
+      <form class="d-flex" method="post" action="/detail">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="user_name" name="user_name"/>
         <button class="btn btn-outline-success" type="submit">
           Search
         </button>
       </form>
-      <ul class="navbar-nav me-4 mb-2 mb-lg-0" id="navmain">
+      
+      <ul class="navbar-nav me-12 mb-12 mb-lg-0" id="navmain">
 
         <% if(isLoggedIn) {%>
-          <li class="nav-item">
+          <li class="nav-item pe-3">
             <a class="nav-link active" aria-current="page" href="/profile">
               <%= user %>
             </a>
           </li>
           
-          <li class="nav-item">
+          <li class="nav-item pe-3">
             <a class="nav-link active" aria-current="page" href="/logout">Log out</a>
           </li>
           <% } else {%>
 
-            <li class="nav-item">
+            <li class="nav-item pe-3">
               <a class="nav-link active" aria-current="page" href="/login">Login</a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item pe-3">
               <a class="nav-link active" aria-current="page" href="/signup">Sign Up</a>
             </li>
             <% } %>

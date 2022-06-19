@@ -16,6 +16,7 @@ const postRoutes=require("./routers/post");
 const createRoutes=require("./routers/create");
 const readRoutes=require("./routers/read");
 const profileRoutes=require("./routers/profile");
+const detailRoutes=require("./routers/detail");
 
 const MONGODB_URI="mongodb+srv://punit:collegeapp@cluster0.vdoj8.mongodb.net/?retryWrites=true&w=majority";
 
@@ -46,6 +47,7 @@ app.use(createRoutes);
 app.use(authRoutes);
 app.use(readRoutes);
 app.use(profileRoutes);
+app.use(detailRoutes);
 
 app.listen(port,()=>{
     console.log("connected at ",port);
