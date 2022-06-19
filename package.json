@@ -5,7 +5,8 @@
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-session": "^1.17.3",
-    "mongoose": "^6.3.4"
+    "mongoose": "^6.3.6",
+    "nodemon": "^2.0.16"
   },
   "name": "collegeknowledgeapp",
   "version": "1.0.1",
@@ -17,7 +18,6 @@
   "author": "Punit Sehrawat",
   "license": "ISC",
   "description": "We can also add comments other thing are complete",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Punit611/CollegeEngagement.git"

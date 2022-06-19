@@ -11,7 +11,9 @@ router.get("/profile",async(req,res)=>{
     const isLoggedIn=req.session.isLoggedIn;
     const blogs=await post.find({author:user});
     const user_data=await User.findOne({username:user});
-    console.log(user_data);
+    
+    // console.log(user_data);
+    
     res.render('profile.ejs',{blogs,isLoggedIn,user,month,user_data});
 })
 

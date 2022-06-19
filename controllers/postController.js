@@ -9,8 +9,8 @@ exports.getAllBlogs=async(req,res)=>{
 
     try{
         const blogs=await Post.find({type:"blog"});
-        res.setHeader("Set-Cookie","blogs=[{a,b,c}]");
-        console.log(isLoggedIn," in blogs ");
+        // res.setHeader("Set-Cookie","blogs=[{a,b,c}]");
+        // console.log(isLoggedIn," in blogs ");
         res.render("blog.ejs",{blogs,isLoggedIn,user,month});
     }
     catch(err){
@@ -24,7 +24,7 @@ exports.getAllNotices= async(req,res)=>{
 
     const notice=await Post.find({type:'notice'})
     // console.log(notice);
-    console.log(isLoggedIn," in notice ");
+    // console.log(isLoggedIn," in notice ");
     res.render("notice.ejs",{isLoggedIn,user,notice,month});
 };
 

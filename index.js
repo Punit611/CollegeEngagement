@@ -32,7 +32,7 @@ app.get('/',async(req,res)=>{
     const user=req.session.username;
     let blogs=await Post.find({});
     let l=blogs.length;
-    console.log(l,l-5);
+    // console.log(l,l-5);
     let l1=0;
     if(l-5>0)
         l1=l-5;
@@ -48,9 +48,9 @@ app.use(readRoutes);
 app.use(profileRoutes);
 
 app.listen(port,()=>{
-    console.log("connected");
+    console.log("connected at ",port);
 });
+
 mongodb.connect(MONGODB_URI,()=>{
     console.log("Connected to mongoose");
 });
-

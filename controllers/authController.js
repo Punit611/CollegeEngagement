@@ -10,11 +10,6 @@ exports.logout=(req,res)=>{
 
 exports.postSignUp = async(req,res)=> {
     console.log("In post signup");
-    // let fullName = req.body.fullName,
-    //     email = req.body.email,
-    //     password = req.body.password;
-
-    // let username = email.split("@")[0];
     
     user.create({
         name: req.body.fullName,
@@ -24,8 +19,7 @@ exports.postSignUp = async(req,res)=> {
         username: req.body.email.split(['@'])[0],
         posts: [{}]
     })
-    .then(console.log("user is created"));
-
+    
     req.session.isLoggedIn=true;
     req.session.username=req.body.email.split(['@'])[0];
     res.redirect("/");
@@ -42,6 +36,7 @@ exports.postLogin=async(req,res)=>{
     }
     else
     {
-        res.send("wrong input");
+        alert("wrong username or password");
+        res.redirect("/login");
     }
 };

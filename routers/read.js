@@ -19,7 +19,7 @@ router.get("/read:id",async(req,res)=>{
     if(comment.length>0)
         comment=comment[0].content;
     
-    console.log("this is comment ",comment);
+    // console.log("this is comment ",comment);
     res.render('read.ejs',{blogs:blogs[0],isLoggedIn,user,comment,month});
 });
 
@@ -30,7 +30,7 @@ router.post("/read:id",async(req,res)=>{
     
     const id=req.params.id.split(":")[1];
 
-    console.log(req.body);
+    // console.log(req.body);
     
     const content={user:user,
         comment:req.body.comment,
