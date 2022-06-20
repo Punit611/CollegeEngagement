@@ -28,7 +28,7 @@
                             <%=String(blogs.date.getHours())+":"+String(blogs.date.getMinutes())+":"+String(blogs.date.getSeconds())%>
                         </small>
                         <p class="card-text">
-                            <%- blogs.content.replace(/\r\n\r\n/g, "<br>" ) %>
+                            <%- blogs.content.replace(/\r\n/g, "</p><p>" ).replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;') %>
                         </p>
                     </div>
                     <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
