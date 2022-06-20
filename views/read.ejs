@@ -43,10 +43,16 @@
             </div>
             <div class="col-12 col-sm-10 col-md-10 col-lg-10" style="margin: 20px;">
                 <div class="card" style="padding: 10px;">
-                    <form  action="/read:<%= blogs._id %>" method="post">
-                        <input style=" width:79%" type="text" name="comment" id="comment" placeholder="Comment">
-                        <button style="width:19%; " type="submit">Add Comment</button>
-                    </form>
+                    
+                    <% if(isLoggedIn) {%>
+                        <form  action="/read:<%= blogs._id %>" method="post">
+                            <input style=" width:79%" type="text" name="comment" id="comment" placeholder="Comment">
+                            <button style="width:19%; " type="submit">Add Comment</button>
+                        </form>
+                        
+                    <% } %>
+                    <br>
+                    <h3>Comments</h3>
                     <% for(let i in comment){ %>
 
                         <div class="container" style="border: 1px solid; margin:10px; width:auto; padding-top:10px">
