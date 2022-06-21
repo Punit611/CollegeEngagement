@@ -17,6 +17,8 @@ const createRoutes=require("./routers/create");
 const readRoutes=require("./routers/read");
 const profileRoutes=require("./routers/profile");
 const detailRoutes=require("./routers/detail");
+const deleteRoutes=require("./routers/delete");
+
 
 const MONGODB_URI="mongodb+srv://punit:collegeapp@cluster0.vdoj8.mongodb.net/?retryWrites=true&w=majority";
 
@@ -48,10 +50,13 @@ app.use(authRoutes);
 app.use(readRoutes);
 app.use(profileRoutes);
 app.use(detailRoutes);
+app.use(deleteRoutes);
+
 
 app.listen(port,()=>{
     console.log("connected at ",port);
 });
+
 
 mongodb.connect(MONGODB_URI,()=>{
     console.log("Connected to mongoose");

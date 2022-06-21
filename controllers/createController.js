@@ -35,7 +35,6 @@ exports.createPost=async(req,res)=>{
     
     // u[0].posts.push(p._id);
     // console.log(u);
-    const posts=await Post.find({});
-    res.render("posts.ejs",{posts,isLoggedIn,user});
+    res.redirect("/");
 
 };

@@ -23,7 +23,16 @@ img {
   top: 8px;
   left: 16px;
 }
-
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+.right
+{
+  position: absolute;
+  right: 16px;
+}
 .card-title {
   margin-bottom: 0.3rem;
 }

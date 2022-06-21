@@ -3,7 +3,7 @@ const req = require("express/lib/request");
 const Comment = require("../model/comment");
 const Post = require("../model/post");
 const User = require("../model/user");
-
+const window=require('window')
 const router= express.Router();
 
 const month=['Jan',"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -15,11 +15,11 @@ router.get("/read:id",async(req,res)=>{
     const id=req.params.id.split(":")[1];
     const blogs=await Post.find({_id:id});
     let comment=await Comment.find({blogid:id});
-
     if(comment.length>0)
         comment=comment[0].content;
     
-    // console.log("this is comment ",comment);
+    // console.log(blogs);
+    
     res.render('read.ejs',{blogs:blogs[0],isLoggedIn,user,comment,month});
 });
 

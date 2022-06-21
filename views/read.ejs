@@ -15,6 +15,16 @@
                                 <%= blogs.type %>
                             </a>
                         </div>
+                        <div class="top-right">
+
+                            <form action="/delete:<%= blogs._id %>" >
+                                <button type="submit" href="" class="btn btn-light btn-sm">
+                                    <img src="delete.png" alt="" style="width: 20px; height: 20px;">
+                                </button>
+    
+                            </form>
+
+                        </div>
 
                     </div>
 
@@ -27,6 +37,10 @@
                             <i class="far fa-clock text-info"></i>
                             <%=String(blogs.date.getHours())+":"+String(blogs.date.getMinutes())+":"+String(blogs.date.getSeconds())%>
                         </small>
+                        
+                        <a href="/detail:<%=blogs.author%>" class="text-muted cat right" >
+                            By <%=" "+blogs.author%>
+                        </a>
                         <p class="card-text">
                             <%- blogs.content.replace(/\r\n/g, "</p><p>" ).replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;') %>
                         </p>
