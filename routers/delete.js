@@ -23,14 +23,6 @@ router.get("/delete:id",async(req,res)=>{
                 $in:id,
             }
         }});
-    const user1=await User.findOne({username:user});
-    console.log(user1,user_post);
-    for(let i in user1.blog)
-    {
-        console.log(user1.blog[i],id,typeof(user1.blog[i]),typeof(id));
-        if(user1.blog[i]===id)
-            console.log('equal');
-    }
     if(user_post==undefined)
     {
         console.log("You can't delete this post")
