@@ -7,12 +7,6 @@ const MongoDBStore=require("connect-mongodb-session")(session);
 const req = require("express/lib/request");
 const port =process.env.PORT || 3000;
 const Post=require("./model/post");
-const {flash}= require("express-flash-message");
-const csrf=require("csurf");
-
-const app=express();
-
-
 const month=['Jan',"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 
@@ -30,16 +24,11 @@ const MONGODB_URI="mongodb+srv://punit:collegeapp@cluster0.vdoj8.mongodb.net/?re
 
 const store=new MongoDBStore({uri:MONGODB_URI,collection:"sessions"});
 
-
-// let csrfProtection = csrf();
+const app=express();
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
 app.set("view engine","ejs");
 app.use(session({secret: "my secret", resave: false, saveUninitialized: false, store: store}));
-app.use(flash({sessionKeyName: 'flashMessage'}));
-// app.use(csrfProtection);
-
-
 
 app.get('/',async(req,res)=>{
     const isLoggedIn=req.session.isLoggedIn;
@@ -51,7 +40,6 @@ app.get('/',async(req,res)=>{
     if(l-5>0)
         l1=l-5;
     blogs=blogs.slice(l1,l);
-    console.log(user,isLoggedIn);
     res.render("home.ejs",{isLoggedIn,user,blogs,month});
 });
 

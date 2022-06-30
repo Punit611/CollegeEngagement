@@ -3,6 +3,7 @@ const req = require("express/lib/request");
 const Comment = require("../model/comment");
 const Post = require("../model/post");
 const User = require("../model/user");
+const window=require('window')
 const router= express.Router();
 
 const month=['Jan',"Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -35,6 +36,7 @@ router.post("/read:id",async(req,res)=>{
         comment:req.body.comment,
         date:new Date()
     };
+    console.log(content);
 
     let comment=await Comment.find({blogid:id});
 
@@ -60,7 +62,8 @@ router.post("/read:id",async(req,res)=>{
 
         });
     }
-    
+    console.log(comment);
+
     await User.findOneAndUpdate({username:user},
     {
         $push:{
@@ -72,7 +75,8 @@ router.post("/read:id",async(req,res)=>{
     comment=await Comment.find({blogid:id});
     if(comment.length>0)
         comment=comment[0].content;
-    
+    console.log(comment);
+
     const redirectory="/read:"+id;
     res.redirect(redirectory);
     

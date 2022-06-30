@@ -25,7 +25,7 @@ router.get("/delete:id",async(req,res)=>{
         }});
     if(user_post==undefined)
     {
-        
+        console.log("You can't delete this post")
         const redirectory="/read:"+id;
         res.redirect(redirectory);
     }
