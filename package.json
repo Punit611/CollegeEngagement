@@ -1,31 +1,23 @@
 {
-  "dependencies": {
-    "alert": "^5.0.12",
-    "body-parser": "^1.20.0",
-    "connect-mongodb-session": "^3.1.1",
-    "ejs": "^3.1.8",
-    "express": "^4.18.1",
-    "express-session": "^1.17.3",
-    "mongoose": "^6.3.6",
-    "nodemon": "^2.0.16",
-    "window": "^4.2.7"
-  },
-  "name": "collegeknowledgeapp",
-  "version": "1.0.1",
+  "name": "testing",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Punit Sehrawat",
+  "author": "",
   "license": "ISC",
-  "description": "We can also add comments other thing are complete",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Punit611/CollegeEngagement.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Punit611/CollegeEngagement/issues"
-  },
-  "homepage": "https://github.com/Punit611/CollegeEngagement#readme"
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-mongodb-session": "^3.1.1",
+    "csurf": "^1.11.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-flash-message": "^2.1.0",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.4.1",
+    "path": "^0.12.7"
+  }
 }

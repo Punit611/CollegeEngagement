@@ -15,7 +15,9 @@ router.post("/detail",async(req,res)=>{
 
     if(user_data==undefined)
     {
-        res.send(user+' not exist');
+        await req.flash('message',"Invalid email or password ")
+
+        res.redirect("/");
     }
     else
     {
@@ -31,7 +33,6 @@ router.get("/detail:id",async(req,res)=>{
     const user=req.session.username;
     const user_detail=req.params.id.split(":")[1];
     const isLoggedIn=req.session.isLoggedIn;
-    console.log(user_detail);
     const blogs=await post.find({author:user_detail});
     const user_data=await User.findOne({username:user_detail});
 
